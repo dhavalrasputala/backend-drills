@@ -9,17 +9,13 @@ docker exec -it go-postgres psql -U admin -d appdb
 
 ## SQL COMMANDS
 1. LEFT JOIN (REQUIRES TWO TABLES WITH A COMMON FIELD)
-  appdb=# SELECT amount FROM transactions AS u LEFT JOIN transactions_date AS t ON u.user_id=t.user_id;
-    amount
-    --------
-    50.00
-    20.50
-    100.00
-    15.25
-    60.70
-    132.49
-    35.65
-    (7 rows)
+  appdb=# SELECT * FROM transactions ORDER BY amount DESC LIMIT 3;
+    id | user_id | amount
+    ----+---------+--------
+    6 |       7 | 132.49
+    3 |       2 | 100.00
+    5 |       6 |  60.70
+  (3 rows)
 
 appdb=#
 ## FINAL TABLE:-
